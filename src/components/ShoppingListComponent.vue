@@ -4,7 +4,7 @@
       <h1>Shopping List</h1>
       <div>
         <input v-model="itemInput" type="text" placeholder="Click Add Item to add">
-        <button @click="addItemToList(itemInput)" class="add_item_button">
+        <button @click="addItemToList(itemInput)" class="add_item_button" id="addItemButton">
           {{ addItemButton }}
         </button>
         <div class="item_list">
@@ -39,6 +39,9 @@ export default {
   },
   mounted() {
     console.info('Dom Mounted.');
+    document.addEventListener('keypress', (e) => {
+      this.AddItemToListByKeyPress(e);
+    });
   },
   updated() {
     console.info('Dom has been updated.');
@@ -51,10 +54,12 @@ export default {
      */
     addItemToList(item) {
       const isItemInlist = this.isItemExist(item);
-      if (!isItemInlist) {
+      if (!isItemInlist && item.toString() !== '') {
         this.itemList.push(item);
         console.info('item added: '.concat(item));
       }
+      // removes text from input form on item addition.
+      this.itemInput = '';
       this.isEmptyList = false;
     },
     /**
@@ -94,6 +99,17 @@ export default {
         }
       }
       return false;
+    },
+    /**
+     * Handles adding valid item to shopping list on 'enter-key' press.
+     * @param e : event handler.
+     * @constructor : enter key pressed.
+     */
+    AddItemToListByKeyPress(e) {
+      if (e.keyCode === 13) {
+        console.log('enter key pressed, adding item to car if valid');
+        this.addItemToList(this.itemInput);
+      }
     },
   },
 };
