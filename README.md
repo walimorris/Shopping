@@ -1,6 +1,6 @@
 # vueshopping
 
-<source src="/src/assets/vueshopping.mp4" width="500">
+![](vueshopping.gif)
 
 ## The Shopping List
 <img src="src/assets/vueshoppingTag.png" width="500">
