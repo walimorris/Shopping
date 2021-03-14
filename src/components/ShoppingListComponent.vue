@@ -1,23 +1,24 @@
 <template>
-  <div>
-    <div>
-      <h1>Shopping List</h1>
-      <div>
-        <input v-model="itemInput" type="text" placeholder="Click Add Item to add">
-        <button @click="addItemToList(itemInput)" class="add_item_button">
-          {{ addItemButton }}
-        </button>
-        <div class="item_list">
-          <ul>
-            <li v-for="item in itemList" :key="item">{{ item }}
-              <a href="#" @click="deleteItem(item)" class="delete_item_link" >
-                {{ deleteItemLink }}</a>
-            </li>
-          </ul>
-          <div v-show="!isEmptyList">
-            <button @click="deleteAllList()" class="delete_all_button">
-              {{ deleteAllButton }}</button>
-          </div>
+  <div class="container">
+    <h1>Shopping List</h1>
+    <div class="wrap">
+      <input v-model="itemInput" type="text" placeholder="Items to add" />
+      <button @click="addItemToList(itemInput)" class="add_item_button">
+        {{ addItemButton }}
+      </button>
+      <div class="item_list">
+        <ul>
+          <li v-for="item in itemList" :key="item">
+            {{ item }}
+            <a href="#" @click="deleteItem(item)" class="delete_item_link">
+              {{ deleteItemLink }}</a
+            >
+          </li>
+        </ul>
+        <div v-show="!isEmptyList">
+          <button @click="deleteAllList()" class="delete_all_button">
+            {{ deleteAllButton }}
+          </button>
         </div>
       </div>
     </div>
@@ -26,22 +27,22 @@
 
 <script>
 export default {
-  name: 'ShoppingListComponent',
+  name: "ShoppingListComponent",
   data() {
     return {
-      itemInput: '',
-      addItemButton: 'Add Item',
-      deleteAllButton: 'Delete All',
-      deleteItemLink: 'Remove',
+      itemInput: "",
+      addItemButton: "Add Item",
+      deleteAllButton: "Delete All",
+      deleteItemLink: "Remove",
       itemList: [],
       isEmptyList: true,
     };
   },
   mounted() {
-    console.info('Dom Mounted.');
+    console.info("Dom Mounted.");
   },
   updated() {
-    console.info('Dom has been updated.');
+    console.info("Dom has been updated.");
   },
   methods: {
     /**
@@ -53,7 +54,7 @@ export default {
       const isItemInlist = this.isItemExist(item);
       if (!isItemInlist) {
         this.itemList.push(item);
-        console.info('item added: '.concat(item));
+        console.info("item added: ".concat(item));
       }
       this.isEmptyList = false;
     },
@@ -66,7 +67,7 @@ export default {
 
       // all items are deleted, handles not showing delete all button.
       this.isEmptyList = true;
-      console.info('Items in list have been removed.');
+      console.info("Items in list have been removed.");
     },
     /**
      * Filters the item being removed from shopping list. Removes item
@@ -100,27 +101,55 @@ export default {
 </script>
 
 <style>
+.container {
+  margin-top: 20em;
+}
 
-input[type=text] {
+h1 {
+  float: left;
+  margin-left: 35.5vw;
+}
+
+.wrap {
+  margin-left: 35vw;
+  margin-right: 35vw;
+}
+
+input[type="text"] {
   border-radius: 4px;
-  width: 30%;
+  height: 2.25em;
+  width: 25vw;
   margin-right: 5px;
   position: center;
 }
 
 .add_item_button {
-  border-radius: 4px;
-  background-color: darkcyan;
+  border-radius: 20%;
+  padding: 0.5em;
+  background-color: navy;
+  font-weight: bold;
   text-align: center;
   text-decoration: none;
   color: white;
 }
 
 .item_list {
+  margin-top: 1em;
+  margin-left: 0.5vw;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  width: 28vw;
+  border: 1.5px lightgrey solid;
+  position: center;
+  text-decoration: none;
 }
 
 .delete_item_link {
+  border-radius: 20%;
+  padding: 0.5em;
   color: red;
+  font-weight: bold;
+  text-align: center;
   text-decoration: none;
 }
 
