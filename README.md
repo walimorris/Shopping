@@ -1,11 +1,6 @@
 # vueshopping
 
-![](vueshopping.gif)
-
-## The Shopping List
-<img src="src/assets/vueshoppingTag.png" width="500">
-
-
+![Check out the demo!](vueshopping.gif)
 
 ## Project setup
 ```
