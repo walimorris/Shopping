@@ -3,7 +3,7 @@
     <div>
       <h1>Shopping List</h1>
       <div>
-        <input v-model="itemInput" type="text" placeholder="Click Add Item to add">
+        <input v-model="itemInput" type="text" placeholder="Add item here">
         <button @click="addItemToList(itemInput)" class="add_item_button" id="addItemButton">
           {{ addItemButton }}
         </button>
@@ -14,7 +14,7 @@
                 {{ deleteItemLink }}</a>
             </li>
           </ul>
-          <div v-show="!isEmptyList">
+          <div v-show="!isShowDeleteButton">
             <button @click="deleteAllList()" class="delete_all_button">
               {{ deleteAllButton }}</button>
           </div>
@@ -34,7 +34,8 @@ export default {
       deleteAllButton: 'Delete All',
       deleteItemLink: 'Remove',
       itemList: [],
-      isEmptyList: true,
+      isShowDeleteButton: true,
+      placeHolderText: '',
     };
   },
   mounted() {
@@ -60,7 +61,10 @@ export default {
       }
       // removes text from input form on item addition.
       this.itemInput = '';
-      this.isEmptyList = false;
+      this.isShowDeleteButton = this.isEmptyList();
+    },
+    isEmptyList() {
+      return this.itemList.length === 0;
     },
     /**
      * Deletes all items from shopping list array. Deletes all items
@@ -70,7 +74,7 @@ export default {
       this.itemList = [];
 
       // all items are deleted, handles not showing delete all button.
-      this.isEmptyList = true;
+      this.isShowDeleteButton = this.isEmptyList();
       console.info('Items in list have been removed.');
     },
     /**
@@ -82,9 +86,7 @@ export default {
       this.itemList = this.itemList.filter((listItem) => listItem !== item);
 
       // checks if list is empty to handle showing delete all button.
-      if (this.itemList.length === 0) {
-        this.isEmptyList = true;
-      }
+      this.isShowDeleteButton = this.isEmptyList();
     },
     /**
      * Handles checking if an item exists before storing it into shopping list.
