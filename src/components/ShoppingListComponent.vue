@@ -14,10 +14,10 @@
                 {{ deleteItemLink }}</a>
             </li>
           </ul>
-          <div v-show="!isShowDeleteButton">
-            <button @click="deleteAllList()" class="delete_all_button">
-              {{ deleteAllButton }}</button>
-          </div>
+        </div>
+        <div v-show="!isShowDeleteButton">
+          <button @click="deleteAllList()" class="delete_all_button">
+            {{ deleteAllButton }}</button>
         </div>
       </div>
     </div>
@@ -121,30 +121,51 @@ export default {
 
 input[type=text] {
   border-radius: 4px;
-  width: 30%;
-  margin-right: 5px;
+  width: 20%;
+  margin-left: 70px;
   position: center;
 }
 
 .add_item_button {
-  border-radius: 4px;
-  background-color: darkcyan;
+  border-radius: 10px;
+  margin-left: 5px;
+  background-color: darkblue;
   text-align: center;
   text-decoration: none;
+  height: 35px;
   color: white;
 }
 
 .item_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  border-radius: 10px;
+  border: 1px solid #ececec;
+  position: center;
 }
 
 .delete_item_link {
   color: red;
   text-decoration: none;
+  float: right;
 }
 
 .delete_all_button {
-  border-radius: 4px;
+  border-radius: 10px;
   background-color: red;
+  text-align: center;
+  text-decoration: none;
+  height: 35px;
   color: white;
+}
+
+li {
+  list-style: none;
+  text-align: left;
+  padding-top: 5px;
 }
 </style>
