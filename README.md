@@ -1,8 +1,9 @@
 # vueshopping
 
 ![Check out the demo!](https://github.com/walimorris/vueshopping/tree/main/src/assets/vueshopping.mp4)
-<img src="src/assets/vueshoppingTag.png" width="250">
-![The Shopping List](./vueshoppingTag.png)
+
+## The Shopping List
+<img src="src/assets/vueshoppingTag.png" width="500">
 
 
 
