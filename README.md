@@ -1,5 +1,3 @@
-https://user-images.githubusercontent.com/48896622/111060847-c27ca500-8454-11eb-9b38-12265effd09f.mp4
-
 # vueshopping
 
 ## Project setup
