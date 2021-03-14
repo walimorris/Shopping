@@ -1,6 +1,6 @@
 # vueshopping
 
-![vueshopping demo](https://github.com/walimorris/vueshopping/src/assets/vueshopping.mp4)
+![vueshopping demo](https://github.com/walimorris/vueshopping/tree/main/src/assets/vueshopping.mp4)
 
 ## Project setup
 ```
