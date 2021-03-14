@@ -1,6 +1,6 @@
 # vueshopping
 
-<iframe width="420" height="315" src="https://github.com/walimorris/vueshopping/tree/main/src/assets/vueshopping.mp4"></iframe>
+![vueshopping demo](https://github.com/walimorris/vueshopping/tree/main/src/assets/vueshopping.mp4)
 
 ## Project setup
 ```
